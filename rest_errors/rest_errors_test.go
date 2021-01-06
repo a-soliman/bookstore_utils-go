@@ -33,3 +33,11 @@ func TestNewNotFoundError(t *testing.T) {
 	assert.EqualValues(t, 404, err.Status)
 	assert.EqualValues(t, "not_found", err.Error)
 }
+
+func TestNewUnAuthorizedError(t *testing.T) {
+	err := NewUnAuthorizedError("test message")
+	assert.NotNil(t, err)
+	assert.EqualValues(t, "test message", err.Message)
+	assert.EqualValues(t, 401, err.Status)
+	assert.EqualValues(t, "unauthorized", err.Error)
+}
