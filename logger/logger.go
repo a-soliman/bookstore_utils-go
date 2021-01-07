@@ -12,6 +12,11 @@ var (
 	log Logger
 )
 
+// BookstoreLogger interface
+type BookstoreLogger interface {
+	Printf(string, ...interface{})
+}
+
 // Logger the logger struct
 type Logger struct {
 	log *zap.Logger
@@ -48,7 +53,7 @@ func (l Logger) Printf(format string, v ...interface{}) {
 }
 
 // GetLogger returns the logger instance
-func GetLogger() Logger {
+func GetLogger() BookstoreLogger {
 	return log
 }
 
