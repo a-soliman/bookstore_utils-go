@@ -32,7 +32,7 @@ func TestNewNotFoundError(t *testing.T) {
 }
 
 func TestNewUnAuthorizedError(t *testing.T) {
-	err := NewUnAuthorizedError("test message")
+	err := NewUnauthorizedError("test message")
 	assert.NotNil(t, err)
 	assert.EqualValues(t, "test message", err.Message())
 	assert.EqualValues(t, 401, err.Status())
